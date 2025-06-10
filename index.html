@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MediaHukum</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', Arial, sans-serif;
+  background: #f9f9f9;
+  color: #222222;
+  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  overflow-x: hidden;
+    font-size: 1.1rem ;
+}
+
+#pancasila {
+  width: 100%;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#pancasila h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #222;
+  font-size: 2rem;
+}
+
+.sila {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #fff;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sila:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sila div {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.sila h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.sila h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #e74c3c;
+}
+
+.sila p {
+  margin: 12px 0;
+  color: #555;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.sila strong {
+  color: #333;
+}
+
+.sila img {
+  width: 120px;
+  height: 120px;
+  margin-left: 20px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.learning-resources {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 0px;
+  margin: 0px ;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.video-item {
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.video-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.video-item h4 {
+  color: #2c3e50;
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.video-item p {
+  color: #555;
+  font-size: 0.95rem;
+  margin: 10px 0;
+}
+
+.video-link {
+  display: block;
+  color: #d62d1e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.video-link img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.learning-footer {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #777;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  #pancasila {
+    padding: 20px 15px;
+  }
+  
+  .sila {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .sila div {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sila img {
+    margin-left: 0;
+    align-self: center;
+  }
+}
+header {
+  background: linear-gradient(90deg, #db8d34, #f3c11c);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 56px;
+  color: #fff;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.6rem;
+  user-select: none;
+  letter-spacing: 1.1px;
+  cursor: default;
+  font-family: 'Nunito', sans-serif;
+  text-shadow: 0 0 8px rgba(230, 126, 9, 0.7);
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+nav a:hover, nav a.active {
+  background-color: #e67e09;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(230, 126, 9, 0.8);
+}
+
+main {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+  max-width: 100vw;
+  width: 100vw;
+  margin: 0;
+  background: #fff;
+  color: #222;
+  font-weight: 500;
+  min-height: calc(100vh - 56px - 56px);
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  flex-grow: 1;
+  display: none;
+  animation: fadeIn 0.8s ease forwards;
+  overflow-y: auto;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  color: #222;
+}
+
+section.active {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+
+
+/* Home Section Styles */
+#home .hero {
+  height: 50vh;
+  background:
+    linear-gradient(135deg, rgba(124, 121, 117, 0.8), rgba(124, 122, 115, 0.8)),
+    url('https://png.pngtree.com/png-clipart/20230628/original/pngtree-garuda-pancasila-emblem-logo-of-indonesian-with-flag-illustration-png-image_9234577.png')
+    center center/cover no-repeat;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  text-align: center;
+  box-shadow: inset 0 0 80px 6px rgba(230, 126, 9, 0.7);
+  margin-bottom: 2rem;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.7);
+  flex-shrink: 0;
+}
+
+#home .hero h1 {
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1.1;
+}
+
+#home .content {
+  max-width: 1300px;
+  margin: 0 auto;
+  color: #000000;
+  font-weight: 500;
+}
+
+#home .content p {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  margin: 1rem 0;
+  user-select: text;
+}
+
+#home .content ul.tense-list {
+  padding-left: 20px;
+  color: #000000;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0.5rem 0 1.5rem 0;
+  user-select: text;
+}
+
+#home a.link-to {
+  font-weight: 600;
+  color: #e67e09;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Tenses Section */
+#tenses h2 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e67e09;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(230, 126, 9, 0.3);
+}
+
+table.tense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: 600;
+  background-color: #f8b24a;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(230, 126, 9, 0.4);
+  overflow: hidden;
+}
+
+thead tr {
+  background: linear-gradient(90deg, #e67e09, #f3c11c);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+table.tense-table th, table.tense-table td {
+  border: 1px solid rgba(255 255 255 / 0.3);
+  padding: 1rem 1.3rem;
+  vertical-align: top;
+  text-align: left;
+  font-size: 1rem;
+  color: #222;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(230, 126, 9, 0.15);
+}
+
+tbody tr:nth-child(even) {
+  background-color: rgba(243, 193, 28, 0.2);
+}
+
+.example-text {
+  font-style: italic;
+  color: #5c3d09;
+  margin-top: 6px;
+  user-select: text;
+}
+
+/* Quiz Section */
+#quiz h2 {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #e67e09;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(230, 126, 9, 0.3);
+}
+
+#quiz .quiz-container {
+  max-width: 980px;
+  margin: 0 auto;
+  background-color: #f8b24a;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  box-shadow: 0 0 25px rgba(230, 126, 9, 0.4);
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  color: #222;
+  font-weight: 600;
+}
+
+#quiz form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.question-block {
+  background-color: rgba(230, 126, 9, 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(230, 126, 9, 0.2);
+}
+
+.question-text {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  user-select: text;
+  line-height: 1.3;
+  color: #222;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.option-label {
+  background: rgba(243, 193, 28, 0.3);
+  padding: 0.85rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(230, 126, 9, 0.2);
+  user-select: none;
+}
+.option-label:hover {
+  background-color: rgba(230, 126, 9, 0.5);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #e67e09;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(230, 126, 9, 0.6);
+}
+
+.option-letter {
+  background: #e67e09;
+  border-radius: 50%;
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  user-select: none;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  box-shadow: 0 0 12px rgba(230, 126, 9, 0.6);
+}
+
+.btn-next, .btn-restart {
+  background: #e67e09;
+  border: none;
+  color: white;
+  padding: 0.75rem 2.3rem;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  cursor: pointer;
+  margin: 1.5rem auto 0 auto;
+  box-shadow: 0 0 25px rgba(230, 126, 9, 0.5);
+  transition: background-color 0.3s ease;
+  user-select: none;
+  font-weight: 700;
+  display: block;
+  width: fit-content;
+}
+
+.btn-next:disabled {
+  background-color: rgba(230, 126, 9, 0.4);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-next:hover:not(:disabled), 
+.btn-restart:hover {
+  background: #f3c11c;
+  color: #222;
+  box-shadow: 0 0 35px rgba(243, 193, 28, 0.6);
+}
+
+.quiz-result {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e67e09;
+  margin-top: 2rem;
+  text-align: center;
+  user-select: text;
+  min-height: 48px;
+  text-shadow: 0 0 8px rgba(230, 126, 9, 0.3);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #e67e09, #f3c11c);
+  text-align: center;
+  padding: 1rem 0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+footer .author {
+  margin-right: 15px;
+}
+
+footer .social-icons a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255 255 255 / 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 15px rgba(230, 126, 9, 0.4);
+}
+
+footer .social-icons a:hover {
+  background-color: #f3c11c;
+  color: #222;
+  box-shadow: 0 0 30px rgba(243, 193, 28, 0.6);
+}
+
+/* Icons with inline SVG */
+.icon {
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+}
+
+/* Scrollbar styling */
+section::-webkit-scrollbar {
+  width: 10px;
+}
+section::-webkit-scrollbar-track {
+  background: rgba(230, 126, 9, 0.1);
+  border-radius: 10px;
+}
+section::-webkit-scrollbar-thumb {
+  background: rgba(230, 126, 9, 0.4);
+  border-radius: 10px;
+}
+
+/* Search Bar Styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+#search-input {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  width: 180px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+#search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#search-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.3);
+  width: 220px;
+}
+
+#search-btn {
+  background: transparent;
+  border: none;
+  margin-left: -35px;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Responsive */
+@media (max-width: 650px) {
+  main {
+    padding: 1rem 1rem 2rem 1rem;
+    font-size: 1rem;
+    min-height: calc(100vh - 56px - 56px);
+  }
+
+  #home .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  nav {
+    gap: 1rem;
+    padding: 1rem 1rem;
+  }
+
+  #quiz .option-label {
+    font-size: 1rem;
+    padding: 0.65rem 1rem;
+  }
+
+  table.tense-table th, table.tense-table td {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  #quiz .btn-next, #quiz .btn-restart {
+    font-size: 1rem;
+    padding: 0.6rem 1.8rem;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-container {
+    order: 3;
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
+  
+  #search-input {
+    width: 100%;
+  }
+  
+  #search-input:focus {
+    width: 100%;
+  }
+  
+  header {
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+    height: auto;
+  }
+  
+  nav {
+    order: 2;
+  }
+}
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      #pancasila {
+        padding: 10px 15px;
+      }
+      .sila {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+      .sila div {
+        max-width: 100%;
+        margin-bottom: 15px;
+      }
+      .sila img {
+        width: 80px;
+        margin-left: 0;
+        align-self: center;
+      }
+    }
+.video-link {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.video-link img {
+  width: 100%;
+  border-radius: 5px;
+  display: block; /* penting agar tidak ada space di bawah gambar */
+  margin-bottom: 8px;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(255, 0, 0, 0.8);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  pointer-events: none; /* biar klik tetap ke link */
+}
+
+.pricing-section {
+  padding: 0px 0px;
+  text-align: center;
+}
+
+h1 {
+  color: #e67e09;
+}
+
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.plan-card {
+  background: #fffaf0;
+  border: 2px solid #f3c11c;
+  border-radius: 10px;
+  width: 300px;
+  padding: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: 0.3s ease-in-out;
+
+  /* Flexbox untuk menyamakan tinggi dan ratakan tombol di bawah */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 450px;
+}
+
+.plan-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.plan-card h2 {
+  color: #e67e09;
+}
+
+.price {
+  font-size: 24px;
+  color: #d35400;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 15px;
+  flex-grow: 1;
+}
+
+.plan-card button {
+  background: #e67e09;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: stretch;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.plan-card button:hover:enabled {
+  background: #d35400;
+}
+
+.plan-card button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Testimonial Section */
+.testimonial {
+  margin-top: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial h2 {
+  color: #e67e09;
+  margin-bottom: 1rem;
+}
+
+.testimonial blockquote {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  font-style: italic;
+  background: #fff3e0;
+  border-left: 4px solid #e67e09;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+}
+
+.testimonial img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #e67e09;
+  color: white;
+  padding: 4px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d35400;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+
+    <div class="logo" aria-label="Website name">MediaHukum</div>
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="#home" class="active" data-target="home">Beranda</a>
+      <a href="#tenses" data-target="pancasila">Pancasila</a>
+      <a href="pembelajaran.html" data-target="pembelajaran">Pembelajaran</a>
+      <a href="#quiz" data-target="quiz">Kuis</a>
+      <a href="#course"data-target="course">Kursus</a>
+    </nav>
+    <div class="search-container">
+  <input type="text" id="search-input" placeholder="Cari Materi..." aria-label="Search tenses">
+  <button id="search-btn" aria-label="Search button">
+    <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    </svg>
+  </button>
+</div>
+  </header>
+
+ <main>
+    <section id="home" class="active" aria-label="Home section">
+      <div class="hero" role="banner" aria-live="polite" aria-atomic="true">
+        <h1>Menghidupkan Nilai Pancasila dalam </h1>
+        <h1>Pendidikan Bahasa</h1>
+      </div>
+      <div class="content">
+        <h2>Pengertian Pancasila dan Bahasa</h2>
+        <p><strong>Pancasila</strong> sebagai dasar negara Indonesia merupakan pandangan hidup bangsa yang terdiri dari lima sila yang saling berkaitan. Sementara <strong>Bahasa</strong> tidak hanya sebagai alat komunikasi, tetapi juga sebagai sarana pembentuk karakter dan penanaman nilai-nilai kebangsaan.</p>
+        <p>Integrasi nilai-nilai Pancasila dalam pembelajaran bahasa dapat menciptakan generasi yang tidak hanya cerdas secara akademis tetapi juga berkarakter kuat sesuai jati diri bangsa Indonesia.</p>
+
+        <h2>Penjelasan Masing-Masing Sila</h2>
+        <ul class="tense-list">
+          <li><strong>Ketuhanan Yang Maha Esa</strong>  
+            <br>Mengajarkan toleransi beragama dan menghormati perbedaan keyakinan dalam berkomunikasi.
+          </li>
+          <br>
+          <li><strong>Kemanusiaan yang Adil dan Beradab</strong>  
+            <br>Mendorong penggunaan bahasa yang santun, tidak diskriminatif, dan menghargai martabat manusia.
+          </li>
+
+          <br>
+
+          <li><strong>Persatuan Indonesia</strong>  
+            <br>Memperkuat identitas kebangsaan melalui bahasa Indonesia yang baik dan benar.
+          </li>
+
+          <br>
+
+          <li><strong>Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</strong>  
+            <br>Mengembangkan kemampuan berdiskusi secara demokratis dan menghargai pendapat orang lain.
+          </li>
+
+          <br>
+
+          <li><strong>Keadilan Sosial bagi Seluruh Rakyat Indonesia</strong>  
+            <br>Mendorong penggunaan bahasa yang inklusif dan memperjuangkan kesetaraan melalui komunikasi.
+          </li>
+        </ul>
+
+        <h2>Dampak Positif Penerapan Pancasila dalam Bahasa</h2>
+        <ul class="tense-list">
+          <li>Memperkuat identitas nasional dan rasa kebangsaan</li>
+          <li>Mengembangkan komunikasi yang santun dan beretika</li>
+          <li>Mencegah penyebaran ujaran kebencian dan hoaks</li>
+          <li>Mendorong toleransi dalam keberagaman</li>
+          <li>Membangun karakter peserta didik yang berintegritas</li>
+        </ul>
+
+        <h2>Dampak Negatif Jika Tidak Menerapkan Pancasila dalam Bahasa</h2>
+        <ul class="tense-list">
+          <li>Melemahnya persatuan bangsa akibat bahasa yang memecah belah</li>
+          <li>Maraknya ujaran kebencian dan diskriminasi</li>
+          <li>Hilangnya nilai-nilai kesopanan dalam berkomunikasi</li>
+          <li>Terjadinya miskomunikasi antar kelompok masyarakat</li>
+          <li>Degradasi moral generasi muda</li>
+        </ul>
+
+        <p>Website pembelajaran ini dirancang untuk membantu Anda memahami nilai-nilai Pancasila dalam konteks pendidikan bahasa, dilengkapi dengan penjelasan mendalam dan contoh penerapan dalam kehidupan sehari-hari.</p>
+        <p>Mulailah dengan mempelajari <a href="#" class="link-to" data-target="pancasila">Nilai-Nilai Pancasila</a> secara detail, atau uji pemahaman Anda di halaman <a href="#" class="link-to" data-target="quiz">Kuis</a>!</p>
+      </div>
+    </section>
+
+<section id="pancasila" aria-label="Pancasila section">
+  <h2>Penerapan Nilai Pancasila dalam Pembelajaran Bahasa dan Digitalisasi</h2>
+
+  <article class="sila" id="sila1">
+    <div>
+      <h3>1. Ketuhanan Yang Maha Esa</h3>
+      <p><strong>Penjelasan:</strong> Sila pertama ini menegaskan bahwa setiap manusia harus memiliki keimanan yang kuat kepada Tuhan Yang Maha Esa serta mengembangkan sikap toleransi yang tinggi terhadap perbedaan agama dan kepercayaan yang ada di Indonesia. Prinsip ini mendorong terciptanya harmoni dan kerukunan antar umat beragama serta mencegah konflik yang disebabkan oleh perbedaan keyakinan.</p>
+      <p><strong>Contoh Penerapan:</strong> Dalam kehidupan sehari-hari, misalnya menghormati waktu dan tempat ibadah teman yang berbeda agama, tidak mengganggu jalannya ibadah, serta saling mendukung dalam kegiatan yang berkaitan dengan keagamaan.</p>
+      <p><strong>Kaitan dengan Bahasa & Digitalisasi:</strong> Dalam era digital, penggunaan bahasa yang sopan, menghormati keberagaman, dan tidak menyinggung agama sangatlah penting. Misalnya, saat berdiskusi di forum online atau media sosial, menjaga sikap hormat dan inklusif dapat mencegah konflik dan mempererat persatuan.</p>
+    </div>
+    <img src="https://th.bing.com/th/id/R.9fef892eb97edff139c2bf4c51575c0d?rik=c1f1Z7kQ1jz6QQ&riu=http%3a%2f%2fdosenppkn.com%2fwp-content%2fuploads%2f2018%2f07%2fLambang-Sila-Pertama.png&ehk=7GxyPjj%2bKXiZYhMSqiZt29C6sEk%2fGylA5%2fydSneAf2k%3d&risl=&pid=ImgRaw&r=0" alt="Ikon Sila 1 Ketuhanan Yang Maha Esa" />
+  </article>
+
+  <article class="sila" id="sila2">
+    <div>
+      <h3>2. Kemanusiaan yang Adil dan Beradab</h3>
+      <p><strong>Penjelasan:</strong> Sila kedua menekankan penghormatan terhadap hak asasi manusia dan keadilan dalam memperlakukan orang lain sebagai makhluk ciptaan Tuhan. Ini termasuk mengembangkan sikap empati, saling menghargai, dan memperlakukan sesama dengan penuh kesopanan dan tata krama, serta menjunjung tinggi prinsip keadilan sosial.</p>
+      <p><strong>Contoh Penerapan:</strong> Contohnya ketika memberikan bantuan sosial kepada korban bencana alam tanpa membeda-bedakan suku, ras, maupun agama. Selain itu, memperlakukan sesama dengan adil dalam lingkungan sekolah atau tempat kerja.</p>
+      <p><strong>Kaitan dengan Bahasa & Digitalisasi:</strong> Literasi digital yang etis dan bertanggung jawab sangat penting untuk menghindari ujaran kebencian, diskriminasi, dan penyebaran berita palsu yang dapat merusak keharmonisan sosial. Mempromosikan komunikasi digital yang penuh rasa empati dan kesadaran moral ikut membangun masyarakat digital yang bermartabat.</p>
+    </div>
+    <img src="https://dosenppkn.com/wp-content/uploads/2018/07/Lambang-Sila-Kedua.png" />
+  </article>
+
+  <article class="sila" id="sila3">
+    <div>
+      <h3>3. Persatuan Indonesia</h3>
+      <p><strong>Penjelasan:</strong> Sila ketiga menegaskan pentingnya menjaga dan memperkokoh persatuan bangsa Indonesia yang sangat beragam dalam suku, budaya, bahasa, dan agama. Prinsip ini bertujuan menciptakan semangat kebersamaan, nasionalisme, dan rasa cinta tanah air yang bersifat inklusif dan menghargai keberagaman.</p>
+      <p><strong>Contoh Penerapan:</strong> Menggunakan bahasa Indonesia yang baik dan benar saat berkomunikasi dalam forum resmi, serta ikut aktif dalam kegiatan yang mempererat persatuan seperti perayaan hari kemerdekaan atau kegiatan budaya bersama.</p>
+      <p><strong>Kaitan dengan Bahasa & Digitalisasi:</strong> Dalam dunia digital, membuat dan membagikan konten positif yang menonjolkan keberagaman budaya Indonesia seperti vlog budaya, cerita tradisional, dan kegiatan komunitas dapat memperkuat rasa persatuan dan menumbuhkan pemahaman antar kelompok masyarakat.</p>
+    </div>
+    <img src="https://dosenppkn.com/wp-content/uploads/2018/07/Lambang-Sila-Ketiga.png" alt="Ikon Sila 3 Persatuan Indonesia" />
+  </article>
+
+  <article class="sila" id="sila4">
+    <div>
+      <h3>4. Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</h3>
+      <p><strong>Penjelasan:</strong> Sila keempat mengedepankan prinsip demokrasi yang dilandasi oleh musyawarah untuk mufakat dalam pengambilan keputusan. Setiap suara dihargai dan keputusan diambil berdasarkan kebijaksanaan yang adil demi kepentingan bersama, bukan ditentukan secara sepihak.</p>
+      <p><strong>Contoh Penerapan:</strong> Dalam lingkungan sekolah misalnya, melakukan musyawarah untuk menentukan ketua kelas dengan mendengar suara dan pendapat seluruh anggota secara adil dan bijaksana.</p>
+      <p><strong>Kaitan dengan Bahasa & Digitalisasi:</strong> Menggunakan platform digital untuk berdiskusi secara demokratis dan menghargai pendapat orang lain sangat penting dalam membangun komunitas online yang sehat. Forum diskusi, polling, atau rapat daring dapat dijalankan dengan semangat permusyawaratan ini.</p>
+    </div>
+    <img src="https://dosenppkn.com/wp-content/uploads/2018/07/Lambang-Sila-Keempat.png" alt="Ikon Sila 4 Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan" />
+  </article>
+
+  <article class="sila" id="sila5">
+    <div>
+      <h3>5. Keadilan Sosial bagi Seluruh Rakyat Indonesia</h3>
+      <p><strong>Penjelasan:</strong> Sila kelima mengandung makna perjuangan untuk menciptakan keadilan dan kesejahteraan bagi seluruh rakyat Indonesia tanpa terkecuali. Ini mencakup usaha menghilangkan kesenjangan sosial dan menyediakan kesempatan yang sama dalam berbagai aspek kehidupan.</p>
+      <p><strong>Contoh Penerapan:</strong> Berbagi sumber belajar, informasi pendidikan, atau fasilitas dengan teman-teman yang kurang mampu, sehingga semua dapat memperoleh kesempatan belajar secara setara.</p>
+      <p><strong>Kaitan dengan Bahasa & Digitalisasi:</strong> Membuka akses pembelajaran dan informasi digital yang inklusif agar semua kalangan masyarakat dapat mengakses dan memanfaatkan teknologi informasi secara merata, serta mengurangi kesenjangan digital.</p>
+    </div>
+    <img src="https://dosenppkn.com/wp-content/uploads/2018/07/Lambang-Sila-Ke-5.png" alt="Ikon Sila 5 Keadilan Sosial bagi Seluruh Rakyat Indonesia" />
+  </article>
+</section>
+
+
+    <section id="pembelajaran" aria-label="pembelajaran section">
+<div class="learn-more">
+<div class="learning-resources">
+  <h3>Dalami Makna Pancasila Melalui Video Pembelajaran Berkualitas</h3>
+  
+  <div class="video-grid">
+    <div class="video-item">
+      <h4>1.Penerapan Nilai-Nilai Pancasila Dalam Kehidupan Sehari-hari</h4>
+        <p>Video ini membahas bagaimana nilai-nilai Pancasila diterapkan dalam berbagai aspek kehidupan masyarakat</p>
+      <a href="https://youtu.be/CLHIxauPUFs?si=C6JoWiWyB4_HM2-V" target="_blank" class="video-link">
+        <img src="gambar/1.png" alt="Video Ketuhanan Era Digital">
+        <div class="play-icon">▶</div>
+        <span>▶️ Tonton Penjelasan (7:36)</span>
+      </a>
+    </div>
+    
+    
+<div class="video-item">
+  <h4>2. Pengalaman Nilai-Nilai Pancasila di Indonesia</h4>
+  <h4></h4>
+  <p>Menunjukkan pengalaman nyata penerapan nilai-nilai Pancasila dalam kehidupan sehari-hari sebagai warga Negara Kesatuan Republik Indonesia.</p>
+  <a href="https://youtu.be/ozHnppNeEqE?si=xi-GUB84YMxOJQgC" target="_blank" class="video-link">
+    <img src="gambar/2.png" alt="Video Etika Digital">
+    <span>▶️ Tonton Penjelasan (9:40)</span>
+    <div class="play-icon">▶</div>
+  </a>
+</div>
+
+    
+    <div class="video-item">
+      <h4>3. Bahasa Indonesia Sebagai Bahasa Persatuan</h4>
+      <p>Video ini menjelaskan peran penting Bahasa Indonesia sebagai wujud nyata penerapan Sila Ketiga Pancasila dalam memperkuat persatuan dan kesatuan bangsa.</p>
+      <a href="https://youtu.be/NwBQM0IPjXw?si=fo7LSheQwAV1Wup9" target="_blank" class="video-link">
+        <img src="gambar/3.png" alt="Video Persatuan Indonesia">
+        <span>▶️ Tonton Penjelasan (2:26)</span>
+        <div class="play-icon">▶</div>
+      </a>
+      </div>
+      
+    <div class="video-item">
+      <h4>4. Materi Rangkuman Pancasila</h4>
+      <p>Video ini menyajikan rangkuman materi inti Pancasila dan penerapan nilai-nilainya dalam kehidupan sehari-hari di era digital.</p>
+      <a href="https://youtu.be/kE_16OF3Eas?si=uetr9UPMH0hQi0DD" target="_blank" class="video-link">
+        <img src="gambar/4.png" alt="Video Demokrasi Digital">
+        <span>▶️ Tonton Penjelasan (14:29)</span>
+        <div class="play-icon">▶</div>
+      </a>
+    </div>
+    
+    <div class="video-item">
+      <h4>5. Pengertian Asal Mula Pancasila</h4>
+      <p>Video ini membahas sejarah dan latar belakang lahirnya Pancasila sebagai dasar negara, serta nilai-nilai yang melandasi pembentukannya.</p>
+      <a href="https://youtu.be/cp1MAasW2Ks?si=NN4JPVv2rZ_0TtLi" target="_blank" class="video-link">
+        <img src="gambar/5.png" alt="Video Keadilan Digital">
+        <span>▶️ Tonton Penjelasan (4:31)</span>
+        <div class="play-icon">▶</div>
+        
+      </a>
+    </div>
+  </div>
+
+  <div class="learning-footer">
+    <p><strong>Rekomendasi Penelusuran:</strong> Untuk pembelajaran komprehensif, kami sarankan menonton video secara berurutan. Setiap video dilengkapi:</p>
+    <ul>
+      <li>✓ Infografis penjelas</li>
+      <li>✓ Studi kasus aktual</li>
+      <li>✓ Latihan evaluasi mandiri</li>
+      <li>✓ Daftar referensi terkini</li>
+    </ul>
+    <p class="disclaimer">*Semua video bersumber dari kanal resmi Kementerian Pendidikan dan Kebudayaan RI</p>
+  </div>
+</div>
+</section>
+
+
+    <section id="quiz" aria-label="Quiz section">
+      <h2>Tes Kemampuan Pancasila Kamu</h2>
+      <div class="quiz-container" aria-live="polite" aria-atomic="true">
+        <form id="quiz-form">
+          <div id="questions-container">
+            <!-- Questions will be inserted here in groups -->
+          </div>
+          <button type="submit" class="btn-next" id="btn-next" disabled>Kirimkan Jawaban</button>
+          <button type="button" class="btn-restart" id="btn-restart" style="display:none;">Ulangi Kuis</button>
+          <div class="quiz-result" id="quiz-result" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+<section id="course" aria-label="course section">
+  <div class="pricing-section">
+    <h1>Kursus Kewarganegaraan dan Pancasila</h1>
+    <p>Bangun karakter kebangsaan dan bahasa yang berjiwa Pancasila melalui kursus tematik kami. Jelajahi nilai-nilai luhur bangsa dalam konteks pendidikan bahasa yang relevan dan aplikatif.</p>
+
+    <div class="plans">
+      <div class="plan-card">
+        <h2>Dasar</h2>
+        <p class="price">Gratis</p>
+        <ul>
+          <li>✅ Pengantar interaktif: Pancasila & Bahasa sebagai pijakan pendidikan</li>
+          <li>✅ Modul PDF mingguan bernuansa nilai kebangsaan</li>
+          <li>✅ Kuis reflektif untuk pemahaman dasar</li>
+        </ul>
+        <button disabled>Paket Aktif</button>
+      </div>
+
+      <div class="plan-card">
+        <h2>Menengah</h2>
+        <p class="price">Rp50.000 / bulan</p>
+        <ul>
+          <li>✅ Seluruh materi dari Paket Dasar</li>
+          <li>✅ Video tematik: Menyatu dalam 5 Sila melalui bahasa</li>
+          <li>✅ Kuis aplikatif & umpan balik pembelajaran kritis</li>
+        </ul>
+        <a href="https://www.instagram.com/mediahukum_?utm_source=ig_web_button_share_sheet&igsh=MXR1aDZlMnBxdTNkNQ==" target="_blank" class="btn">Daftar Sekarang</a>
+
+      </div>
+
+      <div class="plan-card">
+        <h2>Profesional</h2>
+        <p class="price">Rp75.000 / bulan</p>
+        <ul>
+          <li>✅ Seluruh materi dari Paket Menengah</li>
+          <li>✅ Mentoring privat: Strategi mengajarkan nilai Pancasila lewat pembelajaran bahasa</li>
+          <li>✅ Sertifikat resmi sebagai pendidik berbasis nilai Pancasila</li>
+        </ul>
+        <a href="https://www.instagram.com/mediahukum_?utm_source=ig_web_button_share_sheet&igsh=MXR1aDZlMnBxdTNkNQ==" target="_blank" class="btn">Daftar Sekarang</a>
+
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <h2 style="color: #e67e09;">Apa kata mereka?</h2>
+      <blockquote>"Materinya mudah dipahami dan aplikatif! Sangat membantu memahami nilai Pancasila dalam kehidupan sehari-hari, terutama dalam konteks bahasa." – Sinta, Mahasiswa</blockquote>
+      <blockquote>"Setelah ikut kursus profesional, saya jadi lebih siap mengintegrasikan nilai Pancasila dalam pelajaran Bahasa Indonesia di kelas." – Pak Dedi, Guru SMP</blockquote>
+    </div>
+  </div>
+</section>
+
+
+
+ <footer>
+  <div class="footer-content">
+    <div class="author">© 2025 MediaHukum - Bobby Triputra Majid</div>
+    <div class="footer-links">
+      <a href="#" class="footer-link">Terms of Service</a>
+      <a href="#" class="footer-link">Privacy Policy</a>
+      <a href="#" class="footer-link">Contact Us</a>
+    </div>
+    <div class="social-icons" aria-label="Social media links">
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" class="social-icon">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 2C4.238 2 2 4.238 2 7v10c0 2.762 2.238 5 5 5h10c2.762 0 5-2.238 5-5V7c0-2.762-2.238-5-5-5H7zM12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm5.7-.75a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" class="social-icon">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.472 14.382a5.907 5.907 0 0 1-3.34 1.073 5.883 5.883 0 0 1-5.72-5.978c0-3.307 2.69-6 6-6 3.31 0 6 2.693 6 6a5.88 5.88 0 0 1-3.02 5.832zm-.448-7.191a1.504 1.504 0 0 0-1.664-1.664 1.498 1.498 0 0 0-1.664 1.664c0 .83.673 1.503 1.503 1.503a1.525 1.525 0 0 0 1.825-1.503z"/>
+          <path fill="none" d="M0 0h24v24H0z"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter" title="Twitter" class="social-icon">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 7.538a6.574 6.574 0 0 1-1.884.519 3.293 3.293 0 0 0 1.443-1.815 6.59 6.59 0 0 1-2.084.798 3.287 3.287 0 0 0-5.595 2.993 9.33 9.33 0 0 1-6.766-3.429 3.288 3.288 0 0 0 1.02 4.382 3.274 3.274 0 0 1-1.487-.41v.041c0 1.541 1.096 2.828 2.55 3.126a3.29 3.29 0 0 1-1.482.057 3.29 3.29 0 0 0 3.067 2.278 6.588 6.588 0 0 1-4.073 1.404c-.265 0-.526-.018-.781-.05a9.304 9.304 0 0 0 5.034 1.476c6.042 0 9.344-5.002 9.344-9.342 0-.142-.003-.284-.01-.425A6.665 6.665 0 0 0 20 7.538z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    // Navigation tab switching
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('main section');
+
+    function showSection(targetId){
+      navLinks.forEach(l => l.classList.remove('active'));
+      sections.forEach(section => section.classList.remove('active'));
+
+      const navLink = [...navLinks].find(l => l.dataset.target === targetId);
+      if(navLink) navLink.classList.add('active');
+
+      const sec = document.getElementById(targetId);
+      if(sec) sec.classList.add('active');
+
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const targetId = link.getAttribute('data-target');
+    
+    // ✅ Jika ada data-target, berarti link internal → pakai showSection
+    if (targetId) {
+      e.preventDefault();
+      showSection(targetId);
+
+      // Jika quiz, reset ulang quiz
+      if (targetId === 'quiz') {
+        setTimeout(initQuiz, 100);
+      }
+    }
+    // ❌ Jika tidak ada data-target (seperti Course), biarkan default behavior
+  });
+});
+
+
+    // Make internal text links in home for navigation
+    document.querySelectorAll('.link-to').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.dataset.target;
+        showSection(target);
+      });
+    });
+
+    // Quiz data with 30 questions
+const quizData = [
+  { question: 'Apa nilai utama yang terkandung dalam Sila Pertama Pancasila?', options: ['Keadilan sosial', 'Ketuhanan Yang Maha Esa', 'Persatuan Indonesia'], correctIndex: 1 },
+  { question: 'Bahasa Indonesia digunakan sebagai alat pemersatu bangsa. Hal ini mencerminkan sila ke-', options: ['Satu', 'Tiga', 'Lima'], correctIndex: 1 },
+  { question: 'Menghargai perbedaan pendapat dalam diskusi kelas menunjukkan penerapan sila ke-', options: ['Empat', 'Dua', 'Tiga'], correctIndex: 0 },
+  { question: 'Menggunakan bahasa yang santun di media sosial mencerminkan nilai dari sila ke-', options: ['Dua', 'Lima', 'Empat'], correctIndex: 0 },
+  { question: 'Mengapa penting menggunakan Bahasa Indonesia yang baik dan benar dalam pendidikan?', options: ['Agar terlihat keren', 'Sebagai bentuk cinta tanah air', 'Supaya mudah dipahami oleh orang luar negeri'], correctIndex: 1 },
+  { question: 'Contoh perilaku yang mencerminkan nilai Persatuan Indonesia dalam pembelajaran bahasa adalah:', options: ['Berdebat keras saat berbeda pendapat', 'Mengutamakan bahasa daerah', 'Menghargai teman dari berbagai latar belakang'], correctIndex: 2 },
+  { question: 'Apa peran bahasa dalam memperkuat nilai-nilai Pancasila?', options: ['Sebagai alat komunikasi dan pemersatu', 'Sebagai pelajaran sekolah biasa', 'Sebagai cara menghafal Pancasila'], correctIndex: 0 },
+  { question: 'Saat berdiskusi kelompok, kamu mendengarkan pendapat teman dengan sopan. Ini mencerminkan nilai:', options: ['Kemanusiaan yang adil dan beradab', 'Ketuhanan Yang Maha Esa', 'Keadilan sosial'], correctIndex: 0 },
+  { question: 'Mengajarkan Bahasa Indonesia di daerah terpencil menunjukkan pengamalan sila:', options: ['Keadilan sosial bagi seluruh rakyat Indonesia', 'Persatuan Indonesia', 'Kerakyatan yang dipimpin oleh hikmat kebijaksanaan'], correctIndex: 0 },
+  { question: 'Sila keempat mengajarkan kita untuk:', options: ['Menghargai hak orang lain', 'Mufakat dalam pengambilan keputusan', 'Menghafal teks Pancasila'], correctIndex: 1 },
+  { question: 'Penggunaan bahasa untuk menyebarkan berita bohong bertentangan dengan sila ke-', options: ['Dua', 'Lima', 'Empat'], correctIndex: 0 },
+  { question: 'Menjaga bahasa sebagai jati diri bangsa adalah bentuk sikap terhadap sila ke-', options: ['Satu', 'Tiga', 'Lima'], correctIndex: 1 },
+  { question: 'Saling menghormati saat berdiskusi di kelas menunjukkan sikap berdasarkan sila ke-', options: ['Dua', 'Empat', 'Lima'], correctIndex: 0 },
+  { question: 'Menjaga keberagaman bahasa daerah dalam pendidikan menunjukkan penghormatan terhadap:', options: ['Sila Ketiga', 'Sila Kedua', 'Sila Kelima'], correctIndex: 0 },
+  { question: 'Bahasa Indonesia sebagai bahasa pengantar pendidikan mencerminkan:', options: ['Persatuan Indonesia', 'Kemanusiaan yang adil', 'Keadilan sosial'], correctIndex: 0 },
+  { question: 'Memberikan kesempatan yang sama untuk belajar bahasa kepada semua siswa mencerminkan sila ke-', options: ['Satu', 'Lima', 'Dua'], correctIndex: 1 },
+  { question: 'Diskusi kelas yang melibatkan semua pendapat mencerminkan nilai:', options: ['Keadilan sosial', 'Kerakyatan yang dipimpin oleh hikmat kebijaksanaan', 'Persatuan Indonesia'], correctIndex: 1 },
+  { question: 'Menghindari ujaran kebencian di dunia maya mencerminkan sila:', options: ['Dua', 'Tiga', 'Empat'], correctIndex: 0 },
+  { question: 'Bahasa sebagai alat memperkuat rasa kebangsaan adalah wujud dari:', options: ['Sila Ketiga', 'Sila Keempat', 'Sila Pertama'], correctIndex: 0 },
+  { question: 'Menghormati guru dan teman dengan tutur kata sopan mencerminkan:', options: ['Ketuhanan Yang Maha Esa', 'Kemanusiaan yang adil dan beradab', 'Persatuan Indonesia'], correctIndex: 1 },
+  { question: 'Bahasa yang digunakan untuk menyelesaikan konflik mencerminkan nilai sila ke-', options: ['Empat', 'Tiga', 'Dua'], correctIndex: 0 },
+  { question: 'Bahasa Indonesia dikukuhkan sebagai bahasa nasional pada:', options: ['28 Oktober 1928', '17 Agustus 1945', '1 Juni 1945'], correctIndex: 0 },
+  { question: 'Menulis opini dengan bahasa yang santun dan logis mencerminkan nilai:', options: ['Sila Keempat', 'Sila Kedua', 'Sila Pertama'], correctIndex: 0 },
+  { question: 'Belajar bahasa asing sambil tetap mencintai Bahasa Indonesia mencerminkan sikap:', options: ['Nasionalisme', 'Konsumerisme', 'Individualisme'], correctIndex: 0 },
+  { question: 'Menggunakan bahasa untuk mendukung keadilan sosial adalah bentuk implementasi sila ke-', options: ['Dua', 'Lima', 'Tiga'], correctIndex: 1 },
+  { question: 'Berpikir kritis dan menyampaikan pendapat dengan sopan mencerminkan nilai:', options: ['Kemanusiaan yang adil dan beradab', 'Ketuhanan Yang Maha Esa', 'Persatuan Indonesia'], correctIndex: 0 },
+  { question: 'Saat menulis cerpen bertema toleransi, kamu menerapkan sila ke-', options: ['Dua', 'Empat', 'Satu'], correctIndex: 0 },
+  { question: 'Penggunaan istilah asing tanpa perlu dapat mengurangi:', options: ['Persatuan', 'Keadilan', 'Kreativitas'], correctIndex: 0 },
+  { question: 'Bahasa sebagai jembatan antarbudaya mencerminkan nilai sila:', options: ['Tiga', 'Dua', 'Lima'], correctIndex: 0 },
+  { question: 'Siswa dari berbagai suku belajar bersama dengan bahasa Indonesia menunjukkan nilai:', options: ['Keadilan', 'Persatuan', 'Demokrasi'], correctIndex: 1 }
+];
+
+
+    const questionsContainer = document.getElementById('questions-container');
+    const btnNext = document.getElementById('btn-next');
+    const btnRestart = document.getElementById('btn-restart');
+    const quizResult = document.getElementById('quiz-result');
+    const quizForm = document.getElementById('quiz-form');
+
+    const QUESTIONS_PER_PAGE = 5;
+    let currentPage = 0;
+    let totalPages = Math.ceil(quizData.length / QUESTIONS_PER_PAGE);
+    let score = 0;
+
+    function createQuestionHTML(questionObj, globalIndex) {
+      let html = `<div class="question-block" data-global-index="${globalIndex}" aria-live="polite" aria-atomic="true">
+      <div class="question-text" id="q${globalIndex}_text">${globalIndex + 1}. ${questionObj.question}</div>
+      <div class="options" role="radiogroup" aria-labelledby="q${globalIndex}_text">`;
+      questionObj.options.forEach((opt, i) => {
+        html += `
+        <input type="radio" id="q${globalIndex}_option${i}" name="q${globalIndex}" value="${i}" />
+        <label for="q${globalIndex}_option${i}" class="option-label">
+          <div class="option-letter">${String.fromCharCode(65 + i)}</div>${opt}
+        </label>`;
+      });
+      html += `</div></div>`;
+      return html;
+    }
+
+    function renderPage(page) {
+      quizResult.textContent = '';
+      btnNext.disabled = true;
+      btnRestart.style.display = 'none';
+      questionsContainer.innerHTML = '';
+      let start = page * QUESTIONS_PER_PAGE;
+      let end = Math.min(start + QUESTIONS_PER_PAGE, quizData.length);
+      for(let i = start; i < end; i++) {
+        questionsContainer.insertAdjacentHTML('beforeend', createQuestionHTML(quizData[i], i));
+      }
+      addOptionListeners();
+    }
+
+    function addOptionListeners() {
+      const allInputs = questionsContainer.querySelectorAll('input[type="radio"]');
+      const questionGroups = {};
+      allInputs.forEach(input => {
+        let name = input.name;
+        if(!questionGroups[name]) questionGroups[name] = [];
+        questionGroups[name].push(input);
+      });
+
+      Object.values(questionGroups).forEach(radioGroup => {
+        radioGroup.forEach(input => {
+          input.addEventListener('change', () => {
+            // Check if all questions on page answered
+            let allAnswered = Object.values(questionGroups).every(group => group.some(i => i.checked));
+            btnNext.disabled = !allAnswered;
+          });
+        });
+      });
+    }
+
+    quizForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Check answers for current page only
+      let start = currentPage * QUESTIONS_PER_PAGE;
+      let end = Math.min(start + QUESTIONS_PER_PAGE, quizData.length);
+      const userAnswers = {};
+      for(let i = start; i < end; i++) {
+        const selected = quizForm.querySelector(`input[name="q${i}"]:checked`);
+        if(!selected) {
+          alert('Jawab semua pertanyaan terlebih dahulu sebelum dikirimkan.');
+          return;
+        }
+        userAnswers[i] = parseInt(selected.value, 10);
+      }
+
+      // Score counting for this page
+      let correctCount = 0;
+      for(let i = start; i < end; i++) {
+        if(userAnswers[i] === quizData[i].correctIndex) {
+          correctCount++;
+        }
+      }
+
+      score += correctCount;
+
+      if(currentPage < totalPages - 1) {
+        currentPage++;
+        renderPage(currentPage);
+        quizResult.textContent = `Nilai Kamu ${correctCount} adalah ${end - start} Total Nilai: ${score}`;
+        btnNext.disabled = true;
+      } else {
+        // Quiz finished
+        questionsContainer.innerHTML = '';
+        btnNext.style.display = 'none';
+        btnRestart.style.display = 'inline-block';
+        quizResult.innerHTML = `🎉 Kuis Selesai! Total Nilai Kamu: <strong>${score}</strong> adalah <strong>${quizData.length}</strong>. <br> Tekan Ulangi untuk Memulai Teks Kmebali.`;
+      }
+    });
+
+    btnRestart.addEventListener('click', () => {
+      currentPage = 0;
+      score = 0;
+      btnNext.style.display = 'inline-block';
+      btnRestart.style.display = 'none';
+      quizResult.textContent = '';
+      renderPage(currentPage);
+      btnNext.disabled = true;
+    });
+
+    // Initialize quiz if quiz section active on load
+    function initQuiz(){
+      currentPage = 0;
+      score = 0;
+      btnNext.style.display = 'inline-block';
+      btnRestart.style.display = 'none';
+      btnNext.disabled = true;
+      quizResult.textContent = '';
+      renderPage(currentPage);
+    }
+
+    window.addEventListener('load', () => {
+      const activeSection = document.querySelector('main section.active');
+      if(activeSection && activeSection.id === 'quiz'){
+        initQuiz();
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if(link.dataset.target === 'quiz'){
+          setTimeout(initQuiz, 100);
+        }
+      });
+    });
+// Search functionality
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+
+function searchContent() {
+  const searchTerm = searchInput.value.toLowerCase().trim();
+  
+  if (!searchTerm) return;
+  
+  let found = false;
+
+  // Search in Home section
+  const homeContent = document.querySelectorAll('#home .content p, #home .content li');
+  homeContent.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      highlightElement(item);
+      found = true;
+    }
+  });
+
+  // Search in Pancasila section
+  const silaContent = document.querySelectorAll('.sila p, .sila h3');
+  silaContent.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      highlightElement(item);
+      found = true;
+    }
+  });
+
+  // Search in Pembelajaran section (video)
+  const videoItems = document.querySelectorAll('.video-item h4, .video-item p');
+  videoItems.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      highlightElement(item);
+      found = true;
+    }
+  });
+
+  // Search in Quiz section (questions)
+  const quizQuestions = document.querySelectorAll('.question-text');
+  quizQuestions.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    if (text.includes(searchTerm)) {
+      item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      highlightElement(item);
+      found = true;
+    }
+  });
+
+  if (!found) {
+    alert('Materi tidak ditemukan! Coba gunakan kata kunci lain.');
+  }
+}
+
+function highlightElement(element) {
+  element.style.animation = 'highlight 1.5s';
+  setTimeout(() => {
+    element.style.animation = '';
+  }, 1500);
+}
+
+// Add highlight animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes highlight {
+    0% { background-color: rgba(169, 147, 252, 0); }
+    50% { background-color: rgba(169, 147, 252, 0.5); }
+    100% { background-color: rgba(169, 147, 252, 0); }
+  }
+`;
+document.head.appendChild(style);
+
+// Event listeners
+searchBtn.addEventListener('click', searchContent);
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    searchContent();
+  }
+});
+
+  </script>
+  
+</body>
+</html>
+
